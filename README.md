@@ -40,7 +40,7 @@ O Estudai é uma plataforma de estudos, onde é possível cadastrar alunos e pro
 
 Para clonar o repositório
 
-> `git clone https://github.com/Italo-Alves/Estudai-Front-End.git`
+> `git clone https://github.com/Italo-Alves/Estudai-NextJS`
 
 Para instalar as dependencias com Yarn
 
