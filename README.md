@@ -46,9 +46,13 @@ Para instalar as dependencias com NPM
 
 > `npm install | npm i`
 
-Iniciar o ambiente de desenvolvimento
+Iniciar o ambiente de desenvolvimento com Yarn
 
 > `yarn start`
+
+Iniciar o ambiente de desenvolvimento com NPM
+
+> `npm run start`
 
 ## :memo: Licença
 
