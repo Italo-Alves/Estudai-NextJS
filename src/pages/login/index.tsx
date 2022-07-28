@@ -1,176 +1,129 @@
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import Head from "next/head";
-import { useRouter } from "next/router";
+import Head from 'next/head'
+import Link from 'next/link'
 
-import api from "../../services/api";
-import { ToastContainer, toast } from "react-toastify";
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
+import { toast, ToastContainer } from 'react-toastify'
+import * as yup from 'yup'
 
-import "react-toastify/dist/ReactToastify.css";
+import { Input } from '../../components/Form/Input'
+import { Button } from '../../components/Form/Button'
+
+import api from '../../services/api'
 
 import {
+  Main,
   Container,
-  Content,
-  FormContainer,
-  Column,
   Card,
-  TopContainer,
-  GridContainer,
-  FormGroup,
-  BottomContainer,
-  Row,
-} from "../../styles/Login/styles";
+  Form,
+  BackContainer,
+  ButtonContainer,
+} from '../../styles/Login/styles'
 
 interface FormData {
-  email: string;
-  password: string;
+  email: string
+  password: string
 }
 
-const SignIn: React.FC = () => {
-  const router = useRouter();
+const signInFormSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email('Digite um e-mail válido')
+    .required('E-mail obrigatório'),
+  password: yup
+    .string()
+    .min(8, 'A senha deve ter no mínimo 8 caracteres')
+    .required('Senha obrigatória'),
+})
 
-  useEffect(() => {
-    let root = document.getElementById("__next");
-    root.classList.add("loginPage");
-    let buttonTop = document.getElementById("buttonTop");
+export default function SignIn() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: yupResolver(signInFormSchema),
+  })
 
-    if (document.getElementById("buttonTop") !== null) {
-      buttonTop.style.display = "none";
-      buttonTop.style.visibility = "hidden";
-    }
-
-    return () => {
-      root.classList.remove("loginPage");
-    };
-  }, []);
-
-  const [data, setData] = useState({} as FormData);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
-  const isActiveButtonForm =
-    data.email?.length >= 1 && data.password?.length >= 6;
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const onSubmit = async (data: FormData) => {
     try {
-      const response = await api.post("/auth", data);
-      console.log(response);
-      // login(response.data.token);
-      router.push("/");
-      toast.success("Login feito com sucesso", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      const response = await api.post('/auth', data)
+      console.log(response, data)
+      toast.success('Login feito com sucesso', {
+        autoClose: 2500,
+        bodyStyle: {
+          fontSize: 14,
+        },
+      })
     } catch (error) {
-      toast.error("E-mail ou senha inválidos", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      console.log(error)
+      toast.error('E-mail ou senha inválidos', {
+        autoClose: 3000,
+        bodyStyle: {
+          fontSize: 14,
+        },
+      })
     }
-  };
+  }
 
   return (
     <>
       <Head>
         <title>Login</title>
       </Head>
-      <Container>
-        <Content>
-          <h1>Login</h1>
-          <FormContainer>
-            <form method="POST" onSubmit={handleSubmit}>
-              <ToastContainer style={{ fontSize: `1.6rem` }} />
-              <Column>
-                <Card>
-                  <TopContainer>
-                    <GridContainer>
-                      <FormGroup>
-                        <input
-                          type="email"
-                          placeholder="Email"
-                          name="email"
-                          onChange={handleChange}
-                          autoComplete="off"
-                          required
-                        />
-                      </FormGroup>
+      <Main>
+        <ToastContainer />
+        <Container>
+          <h2>Login</h2>
+          <Card>
+            <Form onSubmit={handleSubmit(onSubmit)}>
+              <div>
+                <Input
+                  {...register('email')}
+                  name="email"
+                  type="email"
+                  placeholder="Digite seu email..."
+                  error={errors.email}
+                />
 
-                      <FormGroup>
-                        <input
-                          type="password"
-                          placeholder="Senha"
-                          name="password"
-                          onChange={handleChange}
-                          required
-                        />
-                      </FormGroup>
-                    </GridContainer>
+                <Input
+                  {...register('password')}
+                  name="password"
+                  type="password"
+                  placeholder="********"
+                  error={errors.password}
+                />
+              </div>
 
-                    <FormGroup>
-                      <button type="submit" disabled={!isActiveButtonForm}>
-                        Entrar
-                      </button>
-                    </FormGroup>
-                  </TopContainer>
+              <BackContainer>
+                <div>
+                  <input type="checkbox" name="remember-me" id="remember-me" />
+                  <label htmlFor="remember-me">Lembrar-me</label>
+                </div>
 
-                  <BottomContainer>
-                    <Row>
-                      <div>
-                        <Link href="/signup">
-                          <a>
-                            Quer ser nosso aluno? Clique aqui para se cadastrar
-                            como aluno.
-                          </a>
-                        </Link>
-                      </div>
-
-                      <div>
-                        <Link
-                          href={{
-                            pathname: "/signup",
-                            query: "teacher",
-                          }}
-                        >
-                          <a>
-                            É professor? Clique aqui para se cadastrar como
-                            professor.
-                          </a>
-                        </Link>
-                      </div>
-
-                      <div>
-                        <Link href="/signup/forgot">
-                          <a>Esqueceu a senha?</a>
-                        </Link>
-                      </div>
-                    </Row>
-                  </BottomContainer>
-                </Card>
-              </Column>
-            </form>
-          </FormContainer>
-        </Content>
-      </Container>
+                <div>
+                  <Link href="#">
+                    <a>
+                      <span>Esqueceu a senha?</span>
+                    </a>
+                  </Link>
+                </div>
+              </BackContainer>
+              <ButtonContainer>
+                <Button type="submit">Fazer login</Button>
+                <p>
+                  Não cadastrado ainda?
+                  <Link href="/signup">
+                    <a>
+                      <span>Crie uma conta</span>
+                    </a>
+                  </Link>
+                </p>
+              </ButtonContainer>
+            </Form>
+          </Card>
+        </Container>
+      </Main>
     </>
-  );
-};
-
-export default SignIn;
+  )
+}
