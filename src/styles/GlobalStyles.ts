@@ -1,18 +1,10 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-
-  .loginPage {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    height: 100vh
   }
 
   :root {
@@ -32,14 +24,14 @@ export default createGlobalStyle`
     --color-line-in-white: #E6E6F0;
     --color-input-background: #F8F8FC;
     --color-input-border: #e1e4e8;
-    --color-shadow-inset: inset 0 1px 0 rgba(255, 228, 232, 0.2);
-    --color-state-focus-border: #0366d6;
+    --color-shadow-inset: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+    --color-state-focus-border:#3b82f6;
     --color-state-focus-shadow: 0 0 0 3px rgba(3, 102, 214, 0.3);
     --color-button-text: #FFFFFF;
     --color-box-base: #FFFFFF;
     --color-box-footer: #343333;
-    --color-buttons: #24292e;
-    --color-buttons-hover: rgba(27,31,35,0.85);
+    --color-buttons-hover: #24292e;
+    --color-buttons: rgba(27,31,35,0.85);
     --color-text-base: #5C5C5C;
     --color-search: rgba(255, 255, 255, 0.13);
     --color-text-search: rgb(240, 246, 252);
@@ -47,15 +39,13 @@ export default createGlobalStyle`
     --color-background-button: #24292d;
   }
 
-  html {
-    min-height: 100%;
-  }
-
-  body {
+  html, body {
     background: var(--color-background);
     line-height: 1.5;
 
     color: #212529;
+
+    min-height: 100vh;
   }
 
   /* ::-webkit-scrollbar {
@@ -77,9 +67,8 @@ export default createGlobalStyle`
   body, input, button, textarea {
     font-weight: 500;
     font-family: Poppins, sans-serif;
-    color: var(--color-button-text);
+    /* color: var(--color-button-text); */
     border: 0;
-    outline: none;
   }
 
   button {
@@ -108,7 +97,7 @@ export default createGlobalStyle`
 
   p {
     font-family: Poppins, sans-serif;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -118,19 +107,15 @@ export default createGlobalStyle`
   }
 
   h5 {
-    font-size: 2rem !important;
+    font-size: 2rem ;
   }
 
   h6 {
-    font-size: 1.4rem !important;
+    font-size: 1.4rem;
   }
 
   label {
     font-family: Poppins, sans-serif;
-    font-size: 1.6rem !important;
-
-    display: inline-block;
-
     color: black
   }
 
@@ -148,4 +133,4 @@ export default createGlobalStyle`
     font-size: 62.5%;
   }
 }
-`;
+`
