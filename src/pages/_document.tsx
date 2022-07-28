@@ -5,6 +5,7 @@ import Document, {
   NextScript,
   DocumentContext,
 } from 'next/document'
+
 import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {
@@ -15,46 +16,27 @@ export default class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
         })
 
       const initialProps = await Document.getInitialProps(ctx)
-
       return {
         ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        ),
+        styles: [initialProps.styles, sheet.getStyleElement()],
       }
     } finally {
       sheet.seal()
     }
   }
-
   render() {
     return (
       <Html>
         <Head>
-          <link rel="shortcut icon" href="favicon.png" type="image/png" />
-          <link
-            rel="shortcut icon"
-            type="image/png"
-            sizes="16X16"
-            href="favicon-16x16.png"
-          />
-          <link
-            rel="shortcut icon"
-            type="image/png"
-            sizes="32x32"
-            href="favicon-32x32.png"
-          />
-
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Poppins:wght@200;400;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&family=Poppins:wght@200;400;600;700&display=swap"
             rel="stylesheet"
           />
         </Head>
