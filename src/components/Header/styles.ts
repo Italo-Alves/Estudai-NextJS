@@ -2,205 +2,58 @@ import styled from 'styled-components'
 
 export const Container = styled.header`
   background: var(--color-header-and-footer);
-  padding: 0 10px;
+  padding: 1.4rem 2rem;
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  z-index: 2;
-
-  @media (min-width: 768px) {
-    padding: 0 30px;
-  }
-`
-
-export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  flex: 1;
-  height: 65px;
+  align-items: center;
 
-  .left,
-  .right nav {
-    display: flex;
-    align-items: center;
-    flex: 1;
-  }
-
-  .left a:first-child {
-    display: flex;
-    font-size: 3rem;
-    padding-right: 1rem;
-  }
-
-  .left .logo {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1.6rem;
-    text-decoration: none;
-  }
-
-  .right nav {
-    height: 100%;
-  }
-
-  .right ul {
-    display: flex;
-  }
+  gap: 2rem;
 `
-export const SearchHeaderForm = styled.form`
-  padding-left: 16px;
-  width: 100%;
 
-  display: none;
-  @media (min-width: 768px) {
-    display: block;
+export const Left = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+
+  a {
+    font-size: 2rem;
   }
 
   input {
     background: var(--color-search);
     color: var(--color-text-search);
-    outline: 0;
-    border-radius: 6px;
-    padding: 7px 12px;
-    width: 100%;
 
-    &:focus {
-      width: 318px;
+    border-radius: 0.4rem;
+    padding: 0.6rem 1.2rem;
+    width: 100%;
+    transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border: transparent;
+
+    @media (min-width: 768px) {
+      &:focus {
+        width: 318px;
+        outline: none;
+      }
     }
 
     &::placeholder {
       color: hsla(0, 0%, 100%, 0.75);
     }
-
-    transition: width 0.2s ease-out;
   }
 `
 
-export const NavItem = styled.li`
-  &:first-child {
-    padding-left: 16px;
-  }
-
-  &:not(:last-child) {
-    a {
-      margin-right: 3rem;
-    }
-  }
+export const Right = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
 
   a {
-    font-size: 18px;
-    transition: opacity 0.2s;
+    transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
       opacity: 0.6;
     }
-  }
-`
-
-export const Sidebar = styled.nav`
-  width: 250px;
-  height: 100vh;
-
-  position: fixed;
-  top: 0;
-  left: -250px;
-  z-index: 2;
-  transition: left 0.3s;
-  background: var(--color-header-and-footer);
-
-  margin-top: 65px;
-
-  &.active {
-    left: 0;
-    transition: left 0.3s;
-  }
-
-  ul:last-child {
-    li {
-      padding: 8px 0 0 20px;
-      height: 60px;
-
-      &.active a {
-        background: #565857;
-      }
-
-      a {
-        width: 95%;
-        height: 100%;
-
-        display: flex;
-        align-items: center;
-
-        padding: 0 16px;
-        border-radius: 4px;
-
-        color: var(--color-line-in-white);
-        font-size: 16px;
-
-        text-decoration: none;
-
-        &:hover {
-          background: #565857;
-        }
-
-        span {
-          margin-left: 16px;
-        }
-      }
-    }
-  }
-`
-
-export const SearchSidebar = styled.ul`
-  border-bottom: 1px solid var(--color-text-base);
-  padding: 2rem 0;
-
-  display: none;
-
-  li {
-    padding: 0 1rem;
-  }
-
-  @media (max-width: 767px) {
-    display: block;
-  }
-`
-
-export const SearchSidebarForm = styled.form`
-  width: 100%;
-
-  input {
-    background: var(--color-search);
-    color: var(--color-text-search);
-    outline: 0;
-    border-radius: 6px;
-    padding: 7px 12px;
-    width: 100%;
-  }
-`
-
-export const SidebarOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-
-  opacity: 0;
-  visibility: hidden;
-
-  width: 100vw;
-  height: 100vh;
-
-  margin-top: 65px;
-
-  background: rgba(0, 0, 0, 0.8);
-
-  &.active {
-    opacity: 1;
-    visibility: visible;
   }
 `
