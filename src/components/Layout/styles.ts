@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
-export const WrapperHeader = styled.div`
-  margin-top: 65px;
+export const Main = styled.div`
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  
 `
