@@ -1,14 +1,14 @@
-import Link from "next/link";
-import Head from "next/head";
+import Link from 'next/link'
+import Head from 'next/head'
+import Image from 'next/image'
 
-// import Carousel from "../components/SliderCarousel";
-import { CoursesData } from "../components/HomeData";
+import { CoursesData } from '../components/HomeData'
 
-import studyIcon from "../assets/icons/study.svg";
-import giveClassesIcon from "../assets/icons/give-classes.svg";
-import logoMoney from "../assets/icons/icon-service-01.svg";
-import logoPDF from "../assets/icons/icon-service-02.svg";
-import logoQuestion from "../assets/icons/icon-service-03.svg";
+import studyIcon from '../assets/icons/study.svg'
+import giveClassesIcon from '../assets/icons/give-classes.svg'
+import logoMoney from '../assets/icons/icon-service-01.svg'
+import logoPDF from '../assets/icons/icon-service-02.svg'
+import logoQuestion from '../assets/icons/icon-service-03.svg'
 
 import {
   Container,
@@ -26,29 +26,27 @@ import {
   Button,
   ContainerWhy,
   Item,
-} from "../styles/Home/styles";
+} from '../styles/Home/styles'
 
-const PageLanding = () => {
+function PageLanding() {
   return (
     <>
       <Head>
         <title>Estudai</title>
       </Head>
       <Container>
-        <div style={{ marginTop: "65px" }}></div>
-        {/* <Carousel /> */}
         <Content>
           <ContainerButtons>
             <Link href="/study">
               <a className="study">
-                <img src={studyIcon} alt="Estudar" />
+                <Image src={studyIcon} alt="Estudar" />
                 <span>Estudar</span>
               </a>
             </Link>
 
             <Link href="/give-classes">
               <a className="give-classes">
-                <img src={giveClassesIcon} alt="Dar aulas" />
+                <Image src={giveClassesIcon} alt="Dar aulas" />
                 <span>Postar aulas</span>
               </a>
             </Link>
@@ -61,10 +59,10 @@ const PageLanding = () => {
                   {CoursesData.map((item, index) => {
                     return (
                       <IconBlock key={index}>
-                        <img src={item.icon} alt={item.title} />
+                        <Image src={item.icon} alt={item.title} />
                         <p>{item.title}</p>
                       </IconBlock>
-                    );
+                    )
                   })}
                 </ContainerCourses>
               </Service>
@@ -129,7 +127,7 @@ const PageLanding = () => {
               <h2>Por que escolher o Estudai?</h2>
               <div>
                 <Item>
-                  <img src={logoMoney} alt="Dinheiro" />
+                  <Image src={logoMoney} alt="Dinheiro" />
                   <h4>Satisfação ou seu dinheiro de volta</h4>
                   <p>
                     Confiamos em nosso trabalho. Por isso, você tem 30 dias para
@@ -137,7 +135,7 @@ const PageLanding = () => {
                   </p>
                 </Item>
                 <Item>
-                  <img src={logoPDF} alt="PDF" />
+                  <Image src={logoPDF} alt="PDF" />
                   <h4>Download ilimitado</h4>
                   <p>
                     Não há limites de visualizações ou de downloads. Baixe as
@@ -145,12 +143,12 @@ const PageLanding = () => {
                   </p>
                 </Item>
                 <Item>
-                  <img src={logoQuestion} alt="Dúvidas" />
+                  <Image src={logoQuestion} alt="Dúvidas" />
                   <h4>Fórum de dúvidas</h4>
                   <p>
                     Envie perguntas pela nossa plataforma e acompanhe as dúvidas
                     dos outros alunos. Nossos professores vão auxiliá-los
-                    respondendo e comePntando dúvidas.
+                    respondendo e comentando dúvidas.
                   </p>
                 </Item>
               </div>
@@ -159,7 +157,7 @@ const PageLanding = () => {
         </Content>
       </Container>
     </>
-  );
-};
+  )
+}
 
-export default PageLanding;
+export default PageLanding
