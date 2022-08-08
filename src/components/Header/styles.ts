@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.header`
-  background: var(--color-header-and-footer);
+  background: var(--slate-400);
   padding: 1.4rem 2rem;
 
   display: flex;
@@ -22,8 +22,8 @@ export const Left = styled.div`
   }
 
   input {
-    background: var(--color-search);
-    color: var(--color-text-search);
+    background: var(--gray-600);
+    color: var(--white-800);
 
     border-radius: 0.4rem;
     padding: 0.6rem 1.2rem;
@@ -39,7 +39,7 @@ export const Left = styled.div`
     }
 
     &::placeholder {
-      color: hsla(0, 0%, 100%, 0.75);
+      color: var(--gray-50);
     }
   }
 `

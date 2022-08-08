@@ -19,21 +19,21 @@ const InputBase = css`
 
   padding: 0.8rem 1.2rem;
   font-size: 1.4rem;
-  color: #111827;
+  color: var(--slate-500);
 
-  border: thin solid rgba(209, 213, 219, 1);
+  border: thin solid var(--white-200);
   border-radius: 0.6rem;
 
   transition: border-color 0.15s ease-in-out;
 
-  ${(props: Props) => props.isInvalid && `border-color: rgb(229, 62, 62)`};
+  ${(props: Props) => props.isInvalid && `border-color: var(--red-500)`};
 
   ::placeholder {
-    color: #6b7280;
+    color: var(--gray-100);
   }
 
   &:focus {
-    border-color: var(--color-state-focus-border);
+    border-color: var(--blue-600);
     outline: none;
   }
 `
@@ -42,13 +42,13 @@ export const Input = styled.input<Props>`
   ${InputBase};
 
   &:first-child {
-    border-bottom-left-radius: ${(props) => props.hasRoundedBorder && 'unset'};
-    border-bottom-right-radius: ${(props) => props.hasRoundedBorder && 'unset'};
+    border-bottom-left-radius: ${(props) => (props.hasRoundedBorder && !props.isInvalid) && 'unset'};
+    border-bottom-right-radius: ${(props) => (props.hasRoundedBorder && !props.isInvalid) && 'unset'};
   }
 
   &:last-child {
-    border-top-left-radius: ${(props) => props.hasRoundedBorder && 'unset'};
-    border-top-right-radius: ${(props) => props.hasRoundedBorder && 'unset'};
+    border-top-left-radius: ${(props) => (props.hasRoundedBorder && !props.isInvalid) && 'unset'};
+    border-top-right-radius: ${(props) => (props.hasRoundedBorder && !props.isInvalid) && 'unset'};
   }
 `
 
@@ -60,7 +60,7 @@ export const InputMask = styled(NumberFormat<InputAttributes>).withConfig({
 `
 
 export const ErrorMessage = styled.div`
-  color: #e53e3e;
+  color: var(--red-500);
   margin-top: 0.5rem;
   font-size: 1.2rem;
 `
@@ -74,19 +74,20 @@ export const Button = styled.button`
   font-size: 1.4rem;
   line-height: 2rem;
 
+  border: none;
   border-radius: 0.6rem;
   padding: 0.8rem 1.6rem;
-  background: #3f3f46;
+  background: var(--gray-400);
 
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  color: white;
+  color: var(--white-900);
 
   &:hover {
-    background: #18181b;
+    background: var(--gray-700);
 
     svg {
-      color: #a1a1aa;
+      color: var(--gray-250);
     }
   }
 
@@ -94,7 +95,7 @@ export const Button = styled.button`
     outline: 2px solid transparent;
     outline-offset: 2px;
 
-    box-shadow: 0 0 0 2px #fff, 0 0 0 calc(2px + 2px) #52525b, 0 0 #0000,
+    box-shadow: 0 0 0 2px #fff, 0 0 0 calc(2px + 2px) var(--gray-350), 0 0 #0000,
       0 0 #0000;
   }
 
@@ -106,7 +107,7 @@ export const Button = styled.button`
     padding-left: 1.2rem;
 
     svg {
-      color: #71717a;
+      color: var(--gray-300);
     }
   }
 `

@@ -31,14 +31,14 @@ export const ContainerButtons = styled.div`
 
     font-size: 2rem;
 
-    background: var(--color-buttons);
+    background: var(--gray-400);
 
     transition: background-color 0.15s ease-in-out;
 
     &:hover {
-      background: var(--color-buttons-hover);
+      background: var(--gray-700);
       text-decoration: none;
-      color: var(--color-line-in-white);
+      color: var(--white-900);
     }
 
     &:first-child {
@@ -71,8 +71,8 @@ export const Service = styled.div`
   max-width: 100%;
   border-radius: 10px;
   margin-bottom: 1rem;
-  border: 1px solid var(--color-text-in-primary);
-  background-color: var(--color-box-base);
+  border: 1px solid var(--gray-250);
+  background-color: var(--white-900);
 
   padding: 3rem 3rem 1rem 3rem;
 
@@ -127,8 +127,8 @@ export const ContainerNewsletter = styled.div`
 export const Newsletter = styled.div`
   height: 100%;
 
-  background: var(--color-box-base);
-  border: 1px solid var(--color-text-in-primary);
+  background: var(--white-900);
+  border: 1px solid var(--gray-250);
   border-radius: 10px;
 
   padding: 1.6rem;
@@ -175,22 +175,19 @@ export const Input = styled.input`
   font-size: 14px;
   line-height: 20px;
 
-  background: var(--color-box-base);
+  background: var(--white-900);
 
-  color: #24292e;
+  color: var(--slate-500);
 
-  border: 1px solid var(--color-input-border);
+  border: 1px solid var(--white-200);
   border-radius: 6px;
   outline: none;
 
-  box-shadow: var(--color-shadow-inset);
-
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out;
 
   &:focus {
-    border-color: var(--color-state-focus-border);
+    border-color: var(--blue-600);
     outline: none;
-    box-shadow: var(--color-state-focus-shadow);
   }
 `;
 export const Button = styled.button`
@@ -198,12 +195,12 @@ export const Button = styled.button`
 
   border-radius: 6px;
   padding: 12px 16px;
-  background: var(--color-buttons);
+  background: var(--gray-400);
 
   transition: background-color 0.15s ease-in-out;
 
   &:hover {
-    background: var(--color-buttons-hover);
+    background: var(--gray-700);
   }
 
   b {

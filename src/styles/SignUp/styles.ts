@@ -22,7 +22,7 @@ export const Container = styled.main`
 `
 
 export const Card = styled.section`
-  background: #fff;
+  background: var(--white-900);
 
   padding: 1.6rem 3rem;
 

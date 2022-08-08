@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Input as StyledInput } from '../../components/Form/Input'
 
 export const Main = styled.main`
   display: flex;
@@ -23,7 +22,7 @@ export const Card = styled.div`
   width: 100%;
   margin-top: 2.4rem;
 
-  background: #ffffff;
+  background: var(--white-900);
 
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.4rem;
@@ -81,7 +80,7 @@ export const ButtonContainer = styled.div`
     span {
       margin-left: 0.5rem;
       font-size: 1.4rem;
-      color: #3b82f6;
+      color: var(--blue-600);
 
       &:hover {
         text-decoration: underline;

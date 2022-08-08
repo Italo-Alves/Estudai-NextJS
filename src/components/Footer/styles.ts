@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const TopFooter = styled.div`
-  background: var(--color-box-footer);
-  color: var(--color-title-in-primary);
+  background: var(--gray-500);
+  color: var(--white-900);
   text-align: center;
   padding: 3rem;
   display: flex;
@@ -26,8 +26,8 @@ export const Column = styled.div`
 `;
 
 export const BackFooter = styled.div`
-  background: var(--color-header-and-footer);
-  color: var(--color-title-in-primary);
+  background: var(--slate-400);
+  color: var(--white-900);
 
   padding: 2rem;
   width: 100%;
@@ -37,7 +37,7 @@ export const BackFooter = styled.div`
   align-items: center;
 
   span:first-child {
-    font-size: 12px;
+    font-size: 1.2rem;
   }
 `
 
@@ -48,7 +48,7 @@ export const ListMenu = styled.ul`
     font-size: 1.4rem;
 
     > a {
-      color: var(--color-title-in-primary);
+      color: var(--white-900);
 
       &:hover {
         text-decoration: underline;
@@ -70,11 +70,9 @@ export const Links = styled.ul`
   }
 `
 
-export const Title = styled.h1  `
+export const Title = styled.h1`
   font-size: 1.6rem;
   padding-bottom: 5px;
   font-weight: 700;
   margin-bottom: 0.8rem;
-
-  color: unset;
 `;
