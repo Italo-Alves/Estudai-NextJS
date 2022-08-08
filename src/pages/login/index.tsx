@@ -1,15 +1,17 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { GetServerSideProps } from 'next'
+import { useContext } from 'react'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
-import { toast, ToastContainer } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 import * as yup from 'yup'
+import { parseCookies } from 'nookies'
 
 import { Input } from '../../components/Form/Input'
 import { Button } from '../../components/Form/Button'
-
-import api from '../../services/api'
+import { AuthContext } from '../../contexts/AuthContext'
 
 import {
   Main,
@@ -45,25 +47,10 @@ export default function SignIn() {
     resolver: yupResolver(signInFormSchema),
   })
 
+  const { signIn } = useContext(AuthContext)
+
   const onSubmit = async (data: FormData) => {
-    try {
-      const response = await api.post('/auth', data)
-      console.log(response, data)
-      toast.success('Login feito com sucesso', {
-        autoClose: 2500,
-        bodyStyle: {
-          fontSize: 14,
-        },
-      })
-    } catch (error) {
-      console.log(error)
-      toast.error('E-mail ou senha inválidos', {
-        autoClose: 3000,
-        bodyStyle: {
-          fontSize: 14,
-        },
-      })
-    }
+    await signIn(data)
   }
 
   return (
@@ -128,4 +115,20 @@ export default function SignIn() {
       </Main>
     </>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const cookies = parseCookies(ctx)
+
+  if (cookies['estudai.token']) {
+    return {
+      redirect: {
+        destination: '/dashboard',
+        permanent: false
+      }
+    }
+  }
+  return {
+    props: {}
+  }
 }

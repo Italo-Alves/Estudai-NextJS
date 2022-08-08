@@ -13,7 +13,7 @@ import { Button } from '../../components/Form/Button'
 import { Select } from '../../components/Form/Select'
 import { stateOptions } from '../../components/Form/SelectOptions'
 
-import api from '../../services/api'
+import { api } from '../../services/api'
 
 import {
   Container,
