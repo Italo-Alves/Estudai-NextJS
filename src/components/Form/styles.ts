@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import NumberFormat, { InputAttributes } from 'react-number-format'
 
 interface Props {
-  loginBorderStyle?: boolean
+  hasRoundedBorder?: boolean
   isInvalid: boolean
 }
 
@@ -28,14 +28,6 @@ const InputBase = css`
 
   ${(props: Props) => props.isInvalid && `border-color: rgb(229, 62, 62)`};
 
-  &[type='number'] {
-    ::-webkit-outer-spin-button,
-    ::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-  }
-
   ::placeholder {
     color: #6b7280;
   }
@@ -50,13 +42,13 @@ export const Input = styled.input<Props>`
   ${InputBase};
 
   &:first-child {
-    border-bottom-left-radius: ${(props) => props.loginBorderStyle && 'unset'};
-    border-bottom-right-radius: ${(props) => props.loginBorderStyle && 'unset'};
+    border-bottom-left-radius: ${(props) => props.hasRoundedBorder && 'unset'};
+    border-bottom-right-radius: ${(props) => props.hasRoundedBorder && 'unset'};
   }
 
   &:last-child {
-    border-top-left-radius: ${(props) => props.loginBorderStyle && 'unset'};
-    border-top-right-radius: ${(props) => props.loginBorderStyle && 'unset'};
+    border-top-left-radius: ${(props) => props.hasRoundedBorder && 'unset'};
+    border-top-right-radius: ${(props) => props.hasRoundedBorder && 'unset'};
   }
 `
 

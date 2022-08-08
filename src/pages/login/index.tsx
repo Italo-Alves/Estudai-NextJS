@@ -83,6 +83,7 @@ export default function SignIn() {
                   name="email"
                   type="email"
                   placeholder="Digite seu email..."
+                  hasRoundedBorder
                   error={errors.email}
                 />
 
@@ -91,6 +92,7 @@ export default function SignIn() {
                   name="password"
                   type="password"
                   placeholder="********"
+                  hasRoundedBorder
                   error={errors.password}
                 />
               </div>

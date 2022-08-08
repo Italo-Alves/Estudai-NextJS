@@ -10,11 +10,12 @@ import { Input as StyledInput, Container, ErrorMessage } from './styles'
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string
   label?: string
+  hasRoundedBorder?: boolean
   error?: FieldError
 }
 
 const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
-  { name, label, error, ...rest },
+  { name, label, hasRoundedBorder, error, ...rest },
   ref
 ) => {
   return (
@@ -37,7 +38,7 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
             id={name}
             ref={ref}
             name={name}
-            loginBorderStyle={!error}
+            hasRoundedBorder={hasRoundedBorder}
             isInvalid={!!error}
             {...rest}
           />
