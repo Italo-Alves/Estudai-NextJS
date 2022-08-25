@@ -42,21 +42,21 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       setCookie(undefined, 'estudai.token', accessToken, {
         maxAge: 60 * 60 * 24 * 30,
-        path: '/'
+        path: '/',
       })
 
       setCookie(undefined, 'estudai.refreshToken', refreshToken, {
         maxAge: 60 * 60 * 24 * 30,
-        path: '/'
+        path: '/',
       })
 
       setUser({ email })
 
       api.defaults.headers = {
-        Authorization: `Bearer ${accessToken}`
+        Authorization: `Bearer ${accessToken}`,
       } as CommonHeaderProperties
 
-      Router.push('/dashboard');
+      Router.push('/dashboard')
     } catch (error) {
       console.error(error)
 

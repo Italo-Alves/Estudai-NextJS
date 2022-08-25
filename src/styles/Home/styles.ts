@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const Container = styled.main``;
+export const Container = styled.main``
 
 export const Content = styled.div`
   max-width: 1350px;
@@ -13,7 +13,7 @@ export const Content = styled.div`
     padding: 3rem 1rem 0;
     text-align: center;
   }
-`;
+`
 
 export const ContainerButtons = styled.div`
   display: flex;
@@ -53,7 +53,7 @@ export const ContainerButtons = styled.div`
       color: unset;
     }
   }
-`;
+`
 
 export const ContainerServices = styled.div`
   display: flex;
@@ -65,7 +65,7 @@ export const ContainerServices = styled.div`
   @media (min-width: 992px) {
     flex-direction: row;
   }
-`;
+`
 
 export const Service = styled.div`
   max-width: 100%;
@@ -84,13 +84,13 @@ export const Service = styled.div`
   strong {
     font-size: 2.6rem;
   }
-`;
+`
 
 export const ContainerCourses = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-`;
+`
 
 export const IconBlock = styled.div`
   width: 50%;
@@ -112,18 +112,18 @@ export const IconBlock = styled.div`
   p {
     font-size: 1.5rem;
     font-weight: bolder;
-    font-family: "Archivo", sans-serif;
+    font-family: 'Archivo', sans-serif;
 
     color: black;
   }
-`;
+`
 export const ContainerNewsletter = styled.div`
   max-width: 100%;
 
   @media (min-width: 996px) {
     max-width: 30%;
   }
-`;
+`
 export const Newsletter = styled.div`
   height: 100%;
 
@@ -139,7 +139,7 @@ export const Newsletter = styled.div`
 
     color: black;
   }
-`;
+`
 export const Row = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -148,7 +148,7 @@ export const Row = styled.div`
   div:last-child {
     margin-bottom: 1rem;
   }
-`;
+`
 
 export const Column = styled.div`
   width: 100%;
@@ -162,7 +162,7 @@ export const Column = styled.div`
     font-weight: 600;
     margin-bottom: 0.5rem;
   }
-`;
+`
 
 export const Input = styled.input`
   display: block;
@@ -189,7 +189,7 @@ export const Input = styled.input`
     border-color: var(--blue-600);
     outline: none;
   }
-`;
+`
 export const Button = styled.button`
   width: 100%;
 
@@ -206,7 +206,7 @@ export const Button = styled.button`
   b {
     color: unset;
   }
-`;
+`
 
 export const ContainerWhy = styled.div`
   h2 {
@@ -220,7 +220,7 @@ export const ContainerWhy = styled.div`
 
     margin-bottom: 2.5rem;
   }
-`;
+`
 
 export const Item = styled.div`
   padding: 0 1rem;
@@ -244,4 +244,4 @@ export const Item = styled.div`
     font-size: 1.4rem;
     color: black;
   }
-`;
+`

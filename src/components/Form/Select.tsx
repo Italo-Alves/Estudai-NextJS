@@ -1,9 +1,19 @@
-import { ComponentRef, forwardRef, ForwardRefRenderFunction } from 'react'
+import {
+  ComponentRef,
+  forwardRef,
+  ForwardRefRenderFunction,
+  ComponentProps,
+} from 'react'
 import { FieldError } from 'react-hook-form'
 import ReactSelect, { OnChangeValue, StylesConfig } from 'react-select'
 import { stateOptions } from './SelectOptions'
 
 import { Container, ErrorMessage } from './styles'
+
+interface Option {
+  label: string
+  value: string
+}
 
 interface Props {
   label: string
@@ -11,12 +21,7 @@ interface Props {
   error?: FieldError
 }
 
-interface Option {
-  label: string
-  value: string
-}
-
-type SelectProps = React.ComponentProps<typeof ReactSelect> & Props
+type SelectProps = ComponentProps<typeof ReactSelect> & Props
 
 const selectStyles: StylesConfig = {
   control: (styles) => ({
@@ -77,7 +82,7 @@ const SelectBase: ForwardRefRenderFunction<
         onChange={(target) => handleChange(target as Option)}
         noOptionsMessage={() => 'Sem opções'}
         isSearchable
-        styles={!!error ? controlStylesHasError : selectStyles}
+        styles={error ? controlStylesHasError : selectStyles}
         {...rest}
       />
       {!!error && <ErrorMessage>{error.message}</ErrorMessage>}

@@ -42,13 +42,17 @@ export const Input = styled.input<Props>`
   ${InputBase};
 
   &:first-child {
-    border-bottom-left-radius: ${(props) => (props.hasRoundedBorder && !props.isInvalid) && 'unset'};
-    border-bottom-right-radius: ${(props) => (props.hasRoundedBorder && !props.isInvalid) && 'unset'};
+    border-bottom-left-radius: ${(props) =>
+      props.hasRoundedBorder && !props.isInvalid && 'unset'};
+    border-bottom-right-radius: ${(props) =>
+      props.hasRoundedBorder && !props.isInvalid && 'unset'};
   }
 
   &:last-child {
-    border-top-left-radius: ${(props) => (props.hasRoundedBorder && !props.isInvalid) && 'unset'};
-    border-top-right-radius: ${(props) => (props.hasRoundedBorder && !props.isInvalid) && 'unset'};
+    border-top-left-radius: ${(props) =>
+      props.hasRoundedBorder && !props.isInvalid && 'unset'};
+    border-top-right-radius: ${(props) =>
+      props.hasRoundedBorder && !props.isInvalid && 'unset'};
   }
 `
 

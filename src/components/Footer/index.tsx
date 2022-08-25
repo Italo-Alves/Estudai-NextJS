@@ -1,22 +1,21 @@
-import { ListItem } from './ListItem';
+import { ListItem } from './ListItem'
 
-import { 
-  FacebookLogo, 
-  InstagramLogo, 
-  TwitterLogo, 
-  YoutubeLogo 
-} from 'phosphor-react';
+import {
+  FacebookLogo,
+  InstagramLogo,
+  TwitterLogo,
+  YoutubeLogo,
+} from 'phosphor-react'
 
-import { 
-  TopFooter, 
+import {
+  TopFooter,
   Content,
-  Column, 
-  Title, 
-  ListMenu, 
-  Links, 
-  BackFooter, 
+  Column,
+  Title,
+  ListMenu,
+  Links,
+  BackFooter,
 } from './styles'
-
 
 export function Footer() {
   return (
@@ -80,5 +79,5 @@ export function Footer() {
         </span>
       </BackFooter>
     </footer>
-  );
+  )
 }

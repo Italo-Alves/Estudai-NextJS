@@ -16,11 +16,11 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   { name, label, hasRoundedBorder, error, ...rest },
-  ref
+  ref,
 ) => {
   return (
     <>
-      {!!label ? (
+      {label ? (
         <Container>
           <label htmlFor={name}>{label}</label>
           <StyledInput

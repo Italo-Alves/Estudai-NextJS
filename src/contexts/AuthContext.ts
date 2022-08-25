@@ -2,7 +2,7 @@ import { createContext } from 'react'
 import { User } from './AuthProvider'
 
 export interface SignInCredentials {
-  email: string,
+  email: string
   password: string
 }
 

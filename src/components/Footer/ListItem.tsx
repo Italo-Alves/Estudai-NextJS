@@ -1,5 +1,5 @@
-import React from 'react';
-import Link from "next/link";
+import React from 'react'
+import Link from 'next/link'
 
 interface ListItemProps {
   href: string
@@ -12,11 +12,7 @@ export function ListItem({ href, hasImage, text, children }: ListItemProps) {
   return (
     <li>
       <Link href={href}>
-        <a>
-          {
-            hasImage ? children : text
-          }
-        </a>
+        <a>{hasImage ? children : text}</a>
       </Link>
     </li>
   )

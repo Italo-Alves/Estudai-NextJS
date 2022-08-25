@@ -112,15 +112,13 @@ export default function SignUp() {
       console.log(response)
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        {
-          error.response?.status === 409 &&
-            toast.error('Usuário cadastrado', {
-              autoClose: 2000,
-              bodyStyle: {
-                fontSize: 14,
-              },
-            })
-        }
+        error.response?.status === 409 &&
+          toast.error('Usuário cadastrado', {
+            autoClose: 2000,
+            bodyStyle: {
+              fontSize: 14,
+            },
+          })
       } else {
         console.error(error)
       }
@@ -190,7 +188,7 @@ export default function SignUp() {
               <Input
                 {...register('birthday', {
                   setValueAs(value) {
-                    if (!!value) {
+                    if (value) {
                       return new Date(value).toISOString()
                     }
                   },

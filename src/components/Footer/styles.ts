@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const TopFooter = styled.div`
   background: var(--gray-500);
@@ -7,12 +7,12 @@ export const TopFooter = styled.div`
   padding: 3rem;
   display: flex;
   justify-content: center;
-`;
+`
 
 export const Content = styled.div`
   max-width: 1350px;
   width: 100%;
-`;
+`
 
 export const Column = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ export const Column = styled.div`
     flex-direction: column;
     gap: 2rem;
   }
-`;
+`
 
 export const BackFooter = styled.div`
   background: var(--slate-400);
@@ -43,7 +43,7 @@ export const BackFooter = styled.div`
 
 export const ListMenu = styled.ul`
   line-height: 2rem;
-  
+
   li {
     font-size: 1.4rem;
 
@@ -55,7 +55,7 @@ export const ListMenu = styled.ul`
       }
     }
   }
-`;
+`
 
 export const Links = styled.ul`
   display: flex;
@@ -75,4 +75,4 @@ export const Title = styled.h1`
   padding-bottom: 5px;
   font-weight: 700;
   margin-bottom: 0.8rem;
-`;
+`

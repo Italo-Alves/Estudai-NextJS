@@ -124,11 +124,11 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     return {
       redirect: {
         destination: '/dashboard',
-        permanent: false
-      }
+        permanent: false,
+      },
     }
   }
   return {
-    props: {}
+    props: {},
   }
 }
